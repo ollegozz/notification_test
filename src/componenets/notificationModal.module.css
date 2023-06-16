@@ -1,0 +1,12 @@
+/* .body {  
+    position: relative;
+} */
+
+.modal {
+    background: rgb(129, 102, 102);
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+}
