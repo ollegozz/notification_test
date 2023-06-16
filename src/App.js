@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import AdminPage from './componenets/AdminPage';
+import UserPage from './componenets/UserPage';
+import Header from './componenets/Header';
+import { Routes, Route } from 'react-router-dom'
+import NotificationEdit from './componenets/NotificationEdit'
+import Context from './context'
 
-function App() {
+function App() { 
+
+  const [notifications, setNotifications] = useState([
+    { id: 1, title: 'Hello', body: 'HelloHelloHello', count: 0, date: '16.06.2023' },
+    { id: 2, title: 'Good', body: 'GoodGoodGood', count: 0, date: '16.06.2023' },
+    { id: 3, title: 'Bye', body: 'ByeByeBye', count: 0, date: '16.06.2023' },
+  ])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className='App'>
+      <Context.Provider value={{notifications, setNotifications}}>
+        <Header />
+        <Routes>
+          <Route path='/*' element={<UserPage />} />
+          <Route path='/AdminPage' element={<AdminPage />} />
+          <Route path='/NotificationEdit/:id' element={<NotificationEdit />} />
+        </Routes>        
+        </Context.Provider>     
+     
+    
+    </div>    
   );
 }
 

@@ -1,0 +1,21 @@
+.header {    
+    background: rgba(166, 206, 200, 0.4);
+}
+
+.nav {
+    min-height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav a {
+    color:rgb(6, 54, 34);
+    text-decoration: none;    
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
