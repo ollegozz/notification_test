@@ -6,7 +6,7 @@ import Header from './componenets/Header';
 import { Routes, Route } from 'react-router-dom'
 import NotificationEdit from './componenets/NotificationEdit'
 import Context from './context'
-import NotificationModal from './componenets/NotificationModal';
+
 
 function App() { 
 
@@ -26,7 +26,7 @@ function App() {
           <Route path='/AdminPage' element={<AdminPage />} />
           <Route path='/NotificationEdit/:id' element={<NotificationEdit />} />
         </Routes>
-        <NotificationModal />        
+               
         </Context.Provider>     
      
     
