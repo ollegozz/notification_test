@@ -30,10 +30,6 @@ export default function NotificationEdit() {
         })
     }
 
-    
-
-    
-
     return (
         <div>
             {notifications.map((item) => (
@@ -42,22 +38,22 @@ export default function NotificationEdit() {
                     <div className={style.list}>
                         <Input
                             defaultValue={item.title}
-                                onChange={e => setNotification({ ...notification, title: e.target.value }, 
-                                    setChangeStyle(true),)}
+                            onChange={e => setNotification({ ...notification, title: e.target.value },
+                                setChangeStyle(true))}
                             type="text"
                             placeholder='Title...'
                         />
                         <Input
                             defaultValue={item.body}
-                                onChange={e => setNotification({ ...notification, body: e.target.value }, 
-                                    setChangeStyle(true))}
+                            onChange={e => setNotification({ ...notification, body: e.target.value },
+                                setChangeStyle(true))}
                             type="text"
                             placeholder='Text...' />
-                            {changeStyle ? <Button style={{ background : "green" }}
-                                onClick={editNotificationForm}>Изменить</Button>:
-                                <Button 
-                                    onClick={editNotificationForm}>Изменить</Button> }
-                        
+                        {changeStyle ? <Button style={{ background: "green", margin: "10px" }}
+                            onClick={editNotificationForm}>Изменить</Button> :
+                            <Button style={{ margin: "10px" }}
+                                onClick={editNotificationForm}>Изменить</Button>}
+
 
                         <div className={style.footer}>
                             <div>

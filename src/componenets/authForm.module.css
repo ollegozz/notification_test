@@ -1,0 +1,21 @@
+.body {
+    width: 50%;
+    text-align: center;
+    padding: 100px 50px;
+    margin: 0 auto;
+}
+
+.body p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.input {
+
+    padding: 10px;
+}
+
+.button {
+    margin: 15px;
+}

@@ -4,21 +4,18 @@ import Input from './UI/input/Input'
 import Context from '../context'
 
 export default function NotificationForm({ create }) {
-       
-    const { notifications } = useContext(Context)
-    const [notification, setNotification] = useState({ title: '', body: '' })    
 
-    
-    
+    const { notifications } = useContext(Context)
+    const [notification, setNotification] = useState({ title: '', body: '' })
 
     const addNewNotificationForm = (e) => {
         let notId = notifications.length
         e.preventDefault()
         const today = new Date();
         const now = today.toLocaleDateString('en-US');
-        
+
         const newNotification = {
-            ...notification, id: notId+1, date: now, count: 0
+            ...notification, id: notId + 1, date: now, count: 0
         }
         create(newNotification)
     }

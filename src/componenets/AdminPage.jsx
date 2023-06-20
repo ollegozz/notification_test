@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom'
 import Button from './UI/button/Button'
 import NotificationForm from './NotificationForm'
 import NotificationEdit from './NotificationEdit'
-import Context  from '../context'
+import Context from '../context'
+import AuthForm from './AuthForm'
+
 
 export default function AdminPage() {
 
 
-  const { notifications, setNotifications } = useContext(Context)
+  const { notifications, setNotifications, authStatus } = useContext(Context)
 
 
- const [push, setPush] = useState(false)
+  const [push, setPush] = useState(false)
 
   const formAddNotification = () => {
     setPush(!push)
@@ -23,38 +25,40 @@ export default function AdminPage() {
     setPush(!push)
   }
 
-
   return (
-    <div className={style.body}>
-      {notifications.map((item) => (
-        <div key={item.id}>
-          <div className={style.list}>
-            <div>{item.title}</div>
-            <div>{item.body}</div>
-            <div className={style.footer}>
-              <div>
-                <div>Количество просмотров - {item.count}</div>
-                <div>Дата - {item.date}</div>
+    authStatus ?
+      <div className={style.body}>
+        {notifications.map((item) => (
+          <div key={item.id}>
+            <div className={style.list}>
+              <div>{item.title}</div>
+              <div>{item.body}</div>
+              <div className={style.footer}>
+                <div>
+                  <div>Количество просмотров - {item.count}</div>
+                  <div>Дата - {item.date}</div>
+                </div>
+                <div>
+                  <Link to={`/NotificationEdit/${item.id}`}>
+                    <Button>Редактировать</Button>
+                  </Link>
+                  <NotificationEdit />
+                </div>
               </div>
-              <div>
-                <Link to={`/NotificationEdit/${item.id}`}>
-                  <Button>Редактировать</Button>
-                  </Link>  
-                <NotificationEdit />
-              </div>              
             </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {push ? 
-      <>
-          <NotificationForm create={createNotification} />
-      </> :
-      <div className={style.btn} onClick={formAddNotification}>
-        <Button>Добавить уведомление</Button>
+        {push ?
+          <>
+            <NotificationForm create={createNotification} />
+          </> :
+          <div className={style.btn} onClick={formAddNotification}>
+            <Button>Добавить уведомление</Button>
+          </div>
+        }
       </div>
-      }
-    </div>
+      :
+      <AuthForm />
   )
 }
