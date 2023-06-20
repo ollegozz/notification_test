@@ -1,14 +1,17 @@
 .body {  
     position: relative;
+    
 }
 
 .modal {
-    background: rgb(129, 102, 102);
+    background: rgba(166, 206, 200, 0.4);
     width: 400px;
     height: 300px;
     position: fixed;
     right: 2%;
     bottom: 2%;
+    border-radius: 25% 10%;
+    
 }
 
 .none {
@@ -16,18 +19,30 @@
 }
 
 .close {
-    font-size: 32px;
+    font-size: 24px;
     position: absolute;
     top: 3%;
     right: 5%;
-    color: wheat;
+    color: black;
     cursor: pointer;
-    border: 1px solid wheat;
+    border: 1px solid black;
     border-radius: 50%;
-    padding: 1px 12px;
+    padding: 4px 12px;
+    transition: .7s ease;
+    
 }
 
 .close:hover {
-    color: rgb(235, 144, 144);
-    border: 1px solid rgb(235, 144, 144);
+    color: red;
+    border: 1px solid red;
+}
+
+.title {
+    font-size: 24px;
+    padding: 25px 10px;
+    font-weight: 700;
+}
+
+.body {
+    font-size: 16px;
 }

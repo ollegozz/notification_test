@@ -46,9 +46,8 @@ export default function NotificationModal() {
       {visible ?
         <div className={style.modal}>
           <div>
-            <div>{notification.title}</div>
-            <div>{notification.body}</div>
-            <div>{notification.id}</div>
+            <div className={style.title}>{notification.title}</div>
+            <div className={style.body}>{notification.body}</div>
             <div className={style.close} onClick={close}>X</div>
           </div>
         </div>
