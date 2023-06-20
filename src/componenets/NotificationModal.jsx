@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import style from './notificationModal.module.css'
 import Context from '../context'
 export default function NotificationModal() {
@@ -9,28 +9,29 @@ export default function NotificationModal() {
   const [notification, setNotification] = useState([])
   const [visible, setVisible] = useState(false)
 
-  localStorage.setItem('id', 1);
-
-
   useEffect(() => {
     notifications.map((item) => {
-      item.id === id &&
-        setNotification(item)
+      item.id === id && setNotification(item)        
+      getModal()
     })
   })
 
-  setTimeout(() => {
-    if (id <= count) {
-      setVisible(true)
-    } else setVisible(false)
-    autoClose()
-  }, 2000)
+  const getModal = () => {
+    setTimeout(() => {
+      if (id <= count) {
+        setVisible(true)
+        autoClose()
+      } else setVisible(false)
+    }, 2000)
+    clearTimeout(getModal)
+  }
 
   const autoClose = () => {
     if (visible === true && id <= count) {
       setTimeout(() => {
         close()
       }, 5000)
+      clearTimeout(autoClose)
     }
   }
 
@@ -38,8 +39,6 @@ export default function NotificationModal() {
     setVisible(false)
     setId(id + 1)
   }
-
-  // console.log(id);
 
   return (
     <div className={style.body}>
