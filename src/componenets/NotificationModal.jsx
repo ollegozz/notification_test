@@ -14,9 +14,9 @@ export default function NotificationModal() {
       item.id === id && setNotification(item)        
       getModal()
     })
-  })
+  },[id])
 
-  const getModal = () => {
+   const getModal = () => {
     setTimeout(() => {
       if (id <= count) {
         setVisible(true)
@@ -26,18 +26,18 @@ export default function NotificationModal() {
     clearTimeout(getModal)
   }
 
-  const autoClose = () => {
-    if (visible === true && id <= count) {
+  const autoClose = () => {    
+    if ( id <= count) {
       setTimeout(() => {
         close()
+        setId(id + 1)
       }, 5000)
       clearTimeout(autoClose)
     }
   }
 
   const close = () => {
-    setVisible(false)
-    setId(id + 1)
+    setVisible(false)    
   }
 
   return (
