@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import style from './notificationModal.module.css'
 import Context from '../context'
 export default function NotificationModal() {
