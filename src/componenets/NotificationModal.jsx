@@ -10,11 +10,12 @@ export default function NotificationModal() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    // eslint-disable-next-line
     notifications.map((item) => {
       item.id === id && setNotification(item)        
       getModal()
     })
-  },[id])
+  })
 
    const getModal = () => {
     setTimeout(() => {
