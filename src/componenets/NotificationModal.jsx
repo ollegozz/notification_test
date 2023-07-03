@@ -15,7 +15,7 @@ export default function NotificationModal() {
       item.id === id && setNotification(item)        
       getModal()
     })
-  })
+  },[id])
 
    const getModal = () => {
     setTimeout(() => {
