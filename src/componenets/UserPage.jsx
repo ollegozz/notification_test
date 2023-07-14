@@ -5,7 +5,7 @@ import NotificationModal from './NotificationModal';
 export default function UserPage() {
   return (
     <>
-      <NotificationModal />
+      {/* <NotificationModal /> */}
       <Carousel />
     </>
     

@@ -1,4 +1,18 @@
 .body {
-    color: brown;
     border: 1px solid brown;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;   
+}
+
+.item {
+    width: 19%;
+    margin: 5px 0;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.image{
+    height: 200px;
+    width: 200px;
 }
