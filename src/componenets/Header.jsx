@@ -6,11 +6,13 @@ import Context from '../context'
 
 export default function Header() {
 
-  const { authStatus, setAuthStatus } = useContext(Context)
+  const { authStatus, setAuthStatus, user } = useContext(Context)
 
   const logOut = () => {
     setAuthStatus(false)
   }
+
+  console.log(user);
 
   return (
     <div className={style.header}>
@@ -22,9 +24,13 @@ export default function Header() {
           <Link to='/AdminPage'>AdminPage</Link>
         </div>
         {authStatus ?
-          <Button onClick={logOut}>
-            <Link to='/'>Выйти</Link>
-          </Button>
+        <>
+            <Button onClick={logOut}>
+              <Link to='/'>Выйти</Link>
+            </Button>
+            <div className={style.login}>{user.login}</div>
+        </>
+          
           :
           <Button>
             <Link to='/AdminPage'>Войти</Link>
