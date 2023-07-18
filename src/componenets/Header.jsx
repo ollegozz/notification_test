@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import style from './header.module.css'
 import Button from './UI/button/Button'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,6 @@ export default function Header() {
     setAuthStatus(false)
   }
 
-  console.log(user);
 
   return (
     <div className={style.header}>
